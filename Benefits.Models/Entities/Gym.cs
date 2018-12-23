@@ -13,5 +13,6 @@ namespace Benefits.DAL.Repositories
         public bool IsPersonalTrainer { get; set; }
         public bool IsSauna { get; set; }
         public bool IsDietician { get; set; }
+        public int CityId { get; set; }
     }
 }

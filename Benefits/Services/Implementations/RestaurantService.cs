@@ -14,11 +14,13 @@ namespace Benefits.Services.Implementations
     public class RestaurantService : IRestaurantService
     {
         private readonly IRestaurantRepository _restaurantRepository;
+        private readonly IRestaurantTypeRepository _restaurantTypeRepository;
         private readonly IMapper _mapper;
-        public RestaurantService(IMapper mapper, IRestaurantRepository restaurantRepository)
+        public RestaurantService(IMapper mapper, IRestaurantRepository restaurantRepository, IRestaurantTypeRepository restaurantTypeRepository)
         {
             _mapper = mapper;
             _restaurantRepository = restaurantRepository;
+            _restaurantTypeRepository = restaurantTypeRepository;
         }
 
         public void Create(CreateRestaurantRequest model)
@@ -37,7 +39,7 @@ namespace Benefits.Services.Implementations
             _restaurantRepository.Save();
         }
 
-        public void Update(CreateRestaurantRequest model)
+        public void Update(UpdateRestaurantRequest model)
         {
             var entity = _restaurantRepository.GetById(model.Id);
             if (entity == null)

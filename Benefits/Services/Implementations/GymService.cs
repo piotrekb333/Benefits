@@ -37,7 +37,7 @@ namespace Benefits.Services.Implementations
             _gymRepository.Save();
         }
 
-        public void Update(CreateGymRequest model)
+        public void Update(UpdateGymRequest model)
         {
             var entity = _gymRepository.GetById(model.Id);
             if (entity == null)

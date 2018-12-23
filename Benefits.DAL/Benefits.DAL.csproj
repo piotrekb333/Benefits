@@ -54,10 +54,13 @@
     <Compile Include="Repositories\Implementations\GymRepository.cs" />
     <Compile Include="Repositories\Implementations\RepositoryBase.cs" />
     <Compile Include="Repositories\Implementations\RestaurantRepository.cs" />
+    <Compile Include="Repositories\Implementations\RestaurantTypeRepository.cs" />
     <Compile Include="Repositories\Interfaces\IClientObjectRepository.cs" />
+    <Compile Include="Repositories\Interfaces\IEntity.cs" />
     <Compile Include="Repositories\Interfaces\IGymRepository.cs" />
     <Compile Include="Repositories\Interfaces\IRepositoryBase.cs" />
     <Compile Include="Repositories\Interfaces\IRestaurantRepository.cs" />
+    <Compile Include="Repositories\Interfaces\IRestaurantTypeRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

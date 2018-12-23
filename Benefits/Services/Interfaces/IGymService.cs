@@ -11,7 +11,7 @@ namespace Benefits.Services.Interfaces
     public interface IGymService
     {
         void Create(CreateGymRequest model);
-        void Update(CreateGymRequest model);
+        void Update(UpdateGymRequest model);
         void Delete(int id);
         GymDto GetById(int id);
     }

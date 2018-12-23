@@ -11,7 +11,7 @@ namespace Benefits.Services.Interfaces
     public interface IRestaurantService
     {
         void Create(CreateRestaurantRequest model);
-        void Update(CreateRestaurantRequest model);
+        void Update(UpdateRestaurantRequest model);
         void Delete(int id);
         RestaurantDto GetById(int id);
     }
