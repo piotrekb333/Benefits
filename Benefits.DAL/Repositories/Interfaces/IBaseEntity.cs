@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Benefits.DAL.Repositories.Interfaces
 {
-    public interface IEntity
+    public interface IBaseEntity
     {
         int Id { get; set; }
     }

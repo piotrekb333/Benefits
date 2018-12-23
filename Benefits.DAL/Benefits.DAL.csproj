@@ -56,7 +56,7 @@
     <Compile Include="Repositories\Implementations\RestaurantRepository.cs" />
     <Compile Include="Repositories\Implementations\RestaurantTypeRepository.cs" />
     <Compile Include="Repositories\Interfaces\IClientObjectRepository.cs" />
-    <Compile Include="Repositories\Interfaces\IEntity.cs" />
+    <Compile Include="Repositories\Interfaces\IBaseEntity.cs" />
     <Compile Include="Repositories\Interfaces\IGymRepository.cs" />
     <Compile Include="Repositories\Interfaces\IRepositoryBase.cs" />
     <Compile Include="Repositories\Interfaces\IRestaurantRepository.cs" />
