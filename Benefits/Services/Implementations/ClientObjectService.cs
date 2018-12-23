@@ -1,4 +1,8 @@
-﻿using Benefits.Services.Interfaces;
+﻿using AutoMapper;
+using Benefits.DAL.Entities;
+using Benefits.DAL.Repositories.Interfaces;
+using Benefits.Models.Requests;
+using Benefits.Services.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,19 +12,27 @@ namespace Benefits.Services.Implementations
 {
     public class ClientObjectService : IClientObjectService
     {
-        public void Create()
+        private readonly IClientObjectRepository _clientObjectRepository;
+        private readonly IMapper _mapper;
+        public ClientObjectService(IMapper mapper, IClientObjectRepository clientObjectRepository)
         {
-            throw new NotImplementedException();
+            _mapper = mapper;
+            _clientObjectRepository = clientObjectRepository;
+        }
+        public void AddClientToRestaurant(AddClientToObjectRequest model)
+        {
+            var entity = _mapper.Map<ClientObject>(model);
+            entity.GymId = null;
+            _clientObjectRepository.Create(entity);
+            _clientObjectRepository.Save();
         }
 
-        public void Delete(int id)
+        public void AddClientToGym(AddClientToObjectRequest model)
         {
-            throw new NotImplementedException();
-        }
-
-        public void Update(int id)
-        {
-            throw new NotImplementedException();
+            var entity = _mapper.Map<ClientObject>(model);
+            entity.RestaurantId = null;
+            _clientObjectRepository.Create(entity);
+            _clientObjectRepository.Save();
         }
     }
 }

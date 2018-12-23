@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Benefits.DAL.Repositories.Interfaces
+namespace Benefits.Models.Entities
 {
-    public interface IBaseEntity
+    public abstract class BaseEntity
     {
-        int Id { get; set; }
+        public int Id { get; protected set; }
     }
 }

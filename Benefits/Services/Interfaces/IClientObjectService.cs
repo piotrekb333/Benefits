@@ -8,9 +8,6 @@ namespace Benefits.Services.Interfaces
 {
     public interface IClientObjectService
     {
-        void Create();
-        void Update(int id);
-        void Delete(int id);
         
     }
 }

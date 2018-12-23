@@ -27,8 +27,16 @@ namespace Benefits.Services.Implementations
         public void Create(CreateRestaurantRequest model)
         {
             var entity = _mapper.Map<Restaurant>(model);
-            _restaurantRepository.Create(entity);
+            var id=_restaurantRepository.Create(entity);
             _restaurantRepository.Save();
+            model.TypeOfKitchens.ForEach(m => {
+                _restaurantTypeRepository.Create(new RestaurantType
+                {
+                    RestaurantId = id,
+                    TypeOfKitchenId = m
+                });
+            });
+            _restaurantTypeRepository.Save();
         }
 
         public void Delete(int id)
@@ -38,6 +46,12 @@ namespace Benefits.Services.Implementations
                 return;
             _restaurantRepository.Delete(entity);
             _restaurantRepository.Save();
+            var types = _restaurantTypeRepository.GetByCondition(m => m.RestaurantId == id);
+            foreach (var item in types)
+            {
+                _restaurantTypeRepository.Delete(item);
+            }
+            _restaurantTypeRepository.Save();
         }
 
         public void Update(UpdateRestaurantRequest model)
@@ -48,6 +62,19 @@ namespace Benefits.Services.Implementations
             entity = _mapper.Map<Restaurant>(model);
             _restaurantRepository.Update(entity);
             _restaurantRepository.Save();
+            var types=_restaurantTypeRepository.GetByCondition(m => m.RestaurantId == model.Id);
+            foreach(var item in types)
+            {
+                _restaurantTypeRepository.Delete(item);
+            }
+            model.TypeOfKitchens.ForEach(m => {
+                _restaurantTypeRepository.Create(new RestaurantType
+                {
+                    RestaurantId = model.Id,
+                    TypeOfKitchenId = m
+                });
+            });
+            _restaurantTypeRepository.Save();
         }
         public RestaurantDto GetById(int id)
         {

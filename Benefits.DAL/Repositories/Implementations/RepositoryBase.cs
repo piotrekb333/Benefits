@@ -8,10 +8,11 @@ using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 using Benefits.DAL.Entities;
+using Benefits.Models.Entities;
 
 namespace Benefits.DAL.Repositories.Implementations
 {
-    public abstract class RepositoryBase<T> : IRepositoryBase<T> where T : class
+    public abstract class RepositoryBase<T> : IRepositoryBase<T> where T : BaseEntity
     {
         protected WebApiContext RepositoryContext { get; set; }
 
@@ -40,9 +41,10 @@ namespace Benefits.DAL.Repositories.Implementations
             return this.RepositoryContext.Set<T>().Find(id);
         }
 
-        public void Create(T entity)
+        public int Create(T entity)
         {
             this.RepositoryContext.Set<T>().Add(entity);
+            return entity.Id;
         }
 
         public void Update(T entity)

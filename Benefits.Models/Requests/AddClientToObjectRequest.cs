@@ -3,15 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Benefits.Models.Entities;
 
-namespace Benefits.DAL.Entities
+namespace Benefits.Models.Requests
 {
-    public class ClientObject : BaseEntity
+    public class AddClientToObjectRequest
     {
         public DateTime Date { get; set; }
-        public int ClientId { get; set; }
-        public int? GymId { get; set; }
+        public int? ClientId { get; set; }
         public int? RestaurantId { get; set; }
     }
 }
