@@ -42,6 +42,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ConfigurationModels\Enum.cs" />
+    <Compile Include="DtoModels\GymDto.cs" />
+    <Compile Include="DtoModels\RestaurantDto.cs" />
     <Compile Include="Entities\City.cs" />
     <Compile Include="Entities\Client.cs" />
     <Compile Include="Entities\ClientObject.cs" />

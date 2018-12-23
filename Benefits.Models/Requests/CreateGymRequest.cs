@@ -8,5 +8,6 @@ namespace Benefits.Models.Requests
 {
     public class CreateGymRequest
     {
+        public int Id { get; set; }
     }
 }

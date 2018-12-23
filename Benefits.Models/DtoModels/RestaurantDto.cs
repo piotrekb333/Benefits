@@ -4,10 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Benefits.Models.Requests
+namespace Benefits.Models.DtoModels
 {
-    public class CreateRestaurantRequest
+    public class RestaurantDto
     {
-        public int Id { get; set; }
     }
 }

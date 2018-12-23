@@ -1,4 +1,5 @@
-﻿using Benefits.Models.Requests;
+﻿using Benefits.Models.DtoModels;
+using Benefits.Models.Requests;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,7 +11,8 @@ namespace Benefits.Services.Interfaces
     public interface IRestaurantService
     {
         void Create(CreateRestaurantRequest model);
-        void Update(int id);
+        void Update(CreateRestaurantRequest model);
         void Delete(int id);
+        RestaurantDto GetById(int id);
     }
 }

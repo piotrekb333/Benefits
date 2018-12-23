@@ -1,4 +1,8 @@
-﻿using Benefits.Models.Requests;
+﻿using AutoMapper;
+using Benefits.DAL.Repositories;
+using Benefits.DAL.Repositories.Interfaces;
+using Benefits.Models.DtoModels;
+using Benefits.Models.Requests;
 using Benefits.Services.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -7,21 +11,48 @@ using System.Web;
 
 namespace Benefits.Services.Implementations
 {
-    public class GymService : IRestaurantService
+    public class GymService : IGymService
     {
-        public void Create(CreateRestaurantRequest model)
+        private readonly IGymRepository _gymRepository;
+        private readonly IMapper _mapper;
+        public GymService(IMapper mapper, IGymRepository gymRepository)
         {
-            throw new NotImplementedException();
+            _mapper = mapper;
+            _gymRepository = gymRepository;
+        }
+
+        public void Create(CreateGymRequest model)
+        {
+            var entity = _mapper.Map<Gym>(model);
+            _gymRepository.Create(entity);
+            _gymRepository.Save();
         }
 
         public void Delete(int id)
         {
-            throw new NotImplementedException();
+            var entity = _gymRepository.GetById(id);
+            if (entity == null)
+                return;
+            _gymRepository.Delete(entity);
+            _gymRepository.Save();
         }
 
-        public void Update(int id)
+        public void Update(CreateGymRequest model)
         {
-            throw new NotImplementedException();
+            var entity = _gymRepository.GetById(model.Id);
+            if (entity == null)
+                return;
+            entity = _mapper.Map<Gym>(model);
+            _gymRepository.Update(entity);
+            _gymRepository.Save();
+        }
+        public GymDto GetById(int id)
+        {
+            var entity=_gymRepository.GetById(id);
+            if (entity == null)
+                return null;
+            var result = _mapper.Map<GymDto>(entity);
+            return result;
         }
     }
 }
