@@ -34,14 +34,14 @@ namespace Benefits.App_Start
         {
             builder.RegisterApiControllers(Assembly.GetExecutingAssembly());
 
-            builder.RegisterType<ClientObjectRepository>()
-                   .As<IClientObjectRepository>()
+            builder.RegisterType<ClientRestaurantRepository>()
+                   .As<IClientRestaurantRepository>()
                    .InstancePerRequest();
             builder.RegisterType<GymRepository>()
                   .As<IGymRepository>()
                   .InstancePerRequest();
-            builder.RegisterType<ClientObjectRepository>()
-                   .As<IClientObjectRepository>()
+            builder.RegisterType<ClientRestaurantRepository>()
+                   .As<IClientRestaurantRepository>()
                    .InstancePerRequest();
             builder.RegisterType<RestaurantRepository>()
                   .As<IRestaurantRepository>()

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Benefits.DAL.Repositories.Interfaces
 {
-    public interface IClientObjectRepository : IRepositoryBase<ClientObject>
+    public interface IClientRestaurantRepository : IRepositoryBase<ClientRestaurant>
     {
     }
 }

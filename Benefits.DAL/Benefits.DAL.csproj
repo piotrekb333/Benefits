@@ -50,12 +50,14 @@
   <ItemGroup>
     <Compile Include="Context\WebApiContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Repositories\Implementations\ClientObjectRepository.cs" />
+    <Compile Include="Repositories\Implementations\ClientGymRepository.cs" />
+    <Compile Include="Repositories\Implementations\ClientRestaurantRepository.cs" />
     <Compile Include="Repositories\Implementations\GymRepository.cs" />
     <Compile Include="Repositories\Implementations\RepositoryBase.cs" />
     <Compile Include="Repositories\Implementations\RestaurantRepository.cs" />
     <Compile Include="Repositories\Implementations\RestaurantTypeRepository.cs" />
-    <Compile Include="Repositories\Interfaces\IClientObjectRepository.cs" />
+    <Compile Include="Repositories\Interfaces\IClientGymRepository.cs" />
+    <Compile Include="Repositories\Interfaces\IClientRestaurantRepository.cs" />
     <Compile Include="Repositories\Interfaces\IGymRepository.cs" />
     <Compile Include="Repositories\Interfaces\IRepositoryBase.cs" />
     <Compile Include="Repositories\Interfaces\IRestaurantRepository.cs" />

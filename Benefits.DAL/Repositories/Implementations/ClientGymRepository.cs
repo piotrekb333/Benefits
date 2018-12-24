@@ -1,6 +1,6 @@
 ﻿using Benefits.DAL.Context;
-using Benefits.DAL.Entities;
 using Benefits.DAL.Repositories.Interfaces;
+using Benefits.Models.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,9 +9,9 @@ using System.Threading.Tasks;
 
 namespace Benefits.DAL.Repositories.Implementations
 {
-    public class ClientObjectRepository : RepositoryBase<ClientObject>, IClientObjectRepository
+    public class ClientGymRepository : RepositoryBase<ClientGym>, IClientGymRepository
     {
-        public ClientObjectRepository(WebApiContext repositoryContext) : base(repositoryContext)
+        public ClientGymRepository(WebApiContext repositoryContext) : base(repositoryContext)
         {
         }
     }

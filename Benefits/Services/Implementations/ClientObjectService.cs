@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using Benefits.DAL.Entities;
 using Benefits.DAL.Repositories.Interfaces;
+using Benefits.Models.Entities;
 using Benefits.Models.Requests;
 using Benefits.Services.Interfaces;
 using System;
@@ -12,27 +13,27 @@ namespace Benefits.Services.Implementations
 {
     public class ClientObjectService : IClientObjectService
     {
-        private readonly IClientObjectRepository _clientObjectRepository;
+        private readonly IClientRestaurantRepository _clientRestaurantRepository;
+        private readonly IClientGymRepository _clientGymRepository;
         private readonly IMapper _mapper;
-        public ClientObjectService(IMapper mapper, IClientObjectRepository clientObjectRepository)
+        public ClientObjectService(IMapper mapper, IClientRestaurantRepository clientRestaurantRepository, IClientGymRepository clientGymRepository)
         {
             _mapper = mapper;
-            _clientObjectRepository = clientObjectRepository;
+            _clientRestaurantRepository = clientRestaurantRepository;
+            _clientGymRepository = clientGymRepository;
         }
-        public void AddClientToRestaurant(AddClientToObjectRequest model)
+        public void AddClientToRestaurant(AddClientToRestaurantRequest model)
         {
-            var entity = _mapper.Map<ClientObject>(model);
-            entity.GymId = null;
-            _clientObjectRepository.Create(entity);
-            _clientObjectRepository.Save();
+            var entity = _mapper.Map<ClientRestaurant>(model);
+            _clientRestaurantRepository.Create(entity);
+            _clientRestaurantRepository.Save();
         }
 
-        public void AddClientToGym(AddClientToObjectRequest model)
+        public void AddClientToGym(AddClientToRestaurantRequest model)
         {
-            var entity = _mapper.Map<ClientObject>(model);
-            entity.RestaurantId = null;
-            _clientObjectRepository.Create(entity);
-            _clientObjectRepository.Save();
+            var entity = _mapper.Map<ClientGym>(model);
+            _clientGymRepository.Create(entity);
+            _clientGymRepository.Save();
         }
     }
 }

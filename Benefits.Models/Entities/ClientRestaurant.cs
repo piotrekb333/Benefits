@@ -7,11 +7,10 @@ using Benefits.Models.Entities;
 
 namespace Benefits.DAL.Entities
 {
-    public class ClientObject : BaseEntity
+    public class ClientRestaurant : BaseEntity
     {
         public DateTime Date { get; set; }
         public int ClientId { get; set; }
-        public int? GymId { get; set; }
-        public int? RestaurantId { get; set; }
+        public int RestaurantId { get; set; }
     }
 }

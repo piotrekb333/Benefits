@@ -4,12 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Benefits.Models.Requests
+namespace Benefits.Models.Entities
 {
-    public class AddClientToObjectRequest
+    public class ClientGym : BaseEntity
     {
         public DateTime Date { get; set; }
-        public int? ClientId { get; set; }
-        public int? RestaurantId { get; set; }
+        public int ClientId { get; set; }
+        public int GymId { get; set; }
     }
 }
