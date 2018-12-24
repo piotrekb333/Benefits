@@ -11,5 +11,9 @@ namespace Benefits.DAL.Entities
     {
         public int TypeOfKitchenId { get; set; }
         public int RestaurantId { get; set; }
+
+        public virtual Restaurant Restaurant { get; set; }
+        public virtual TypeOfKitchen TypeOfKitchen { get; set; }
+
     }
 }

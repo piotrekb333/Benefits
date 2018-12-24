@@ -14,5 +14,7 @@ namespace Benefits.Services.Interfaces
         void Update(UpdateRestaurantRequest model);
         void Delete(int id);
         RestaurantDto GetById(int id);
+        List<RestaurantDto> GetAll();
+
     }
 }

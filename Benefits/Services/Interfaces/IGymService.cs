@@ -14,5 +14,6 @@ namespace Benefits.Services.Interfaces
         void Update(UpdateGymRequest model);
         void Delete(int id);
         GymDto GetById(int id);
+        List<GymDto> GetAll();
     }
 }

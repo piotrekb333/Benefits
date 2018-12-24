@@ -9,6 +9,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using Benefits.DAL.Entities;
+using Benefits.DAL.Context;
 
 namespace Benefits.Services.Implementations
 {
@@ -16,65 +17,74 @@ namespace Benefits.Services.Implementations
     {
         private readonly IRestaurantRepository _restaurantRepository;
         private readonly IRestaurantTypeRepository _restaurantTypeRepository;
+        private readonly IRestaurantUnitOfWork _restaurantUnitOfWork;
         private readonly IMapper _mapper;
-        public RestaurantService(IMapper mapper, IRestaurantRepository restaurantRepository, IRestaurantTypeRepository restaurantTypeRepository)
+        public RestaurantService(IMapper mapper, IRestaurantRepository restaurantRepository, IRestaurantTypeRepository restaurantTypeRepository,
+            IRestaurantUnitOfWork restaurantUnitOfWork)
         {
             _mapper = mapper;
             _restaurantRepository = restaurantRepository;
             _restaurantTypeRepository = restaurantTypeRepository;
+            _restaurantUnitOfWork = restaurantUnitOfWork;
         }
 
         public void Create(CreateRestaurantRequest model)
         {
+            _restaurantUnitOfWork.BeginTransaction();
             var entity = _mapper.Map<Restaurant>(model);
-            var id=_restaurantRepository.Create(entity);
-            _restaurantRepository.Save();
+            var id= _restaurantUnitOfWork.GetRestaurantRepository().Create(entity);
+            _restaurantUnitOfWork.GetRestaurantRepository().Save();
             model.TypeOfKitchens.ForEach(m => {
-                _restaurantTypeRepository.Create(new RestaurantType
+                _restaurantUnitOfWork.GetRestaurantTypeRepository().Create(new RestaurantType
                 {
                     RestaurantId = id,
                     TypeOfKitchenId = m
                 });
             });
-            _restaurantTypeRepository.Save();
+            _restaurantUnitOfWork.GetRestaurantTypeRepository().Save();
+            _restaurantUnitOfWork.CommitTransaction();
         }
 
         public void Delete(int id)
         {
-            var entity = _restaurantRepository.GetById(id);
+            _restaurantUnitOfWork.BeginTransaction();
+            var entity = _restaurantUnitOfWork.GetRestaurantRepository().GetById(id);
             if (entity == null)
                 return;
-            _restaurantRepository.Delete(entity);
-            _restaurantRepository.Save();
-            var types = _restaurantTypeRepository.GetByCondition(m => m.RestaurantId == id);
+            var types = _restaurantUnitOfWork.GetRestaurantTypeRepository().GetByCondition(m => m.RestaurantId == id);
             foreach (var item in types)
             {
                 _restaurantTypeRepository.Delete(item);
             }
-            _restaurantTypeRepository.Save();
+            _restaurantUnitOfWork.GetRestaurantTypeRepository().Save();
+            _restaurantUnitOfWork.GetRestaurantRepository().Delete(entity);
+            _restaurantUnitOfWork.GetRestaurantRepository().Save();
+            _restaurantUnitOfWork.CommitTransaction();
         }
 
         public void Update(UpdateRestaurantRequest model)
         {
-            var entity = _restaurantRepository.GetById(model.Id);
+            _restaurantUnitOfWork.BeginTransaction();
+            var entity = _restaurantUnitOfWork.GetRestaurantRepository().GetById(model.Id);
             if (entity == null)
                 return;
             entity = _mapper.Map<Restaurant>(model);
-            _restaurantRepository.Update(entity);
-            _restaurantRepository.Save();
-            var types=_restaurantTypeRepository.GetByCondition(m => m.RestaurantId == model.Id);
+            _restaurantUnitOfWork.GetRestaurantRepository().Update(entity);
+            _restaurantUnitOfWork.GetRestaurantRepository().Save();
+            var types= _restaurantUnitOfWork.GetRestaurantTypeRepository().GetByCondition(m => m.RestaurantId == model.Id);
             foreach(var item in types)
             {
-                _restaurantTypeRepository.Delete(item);
+                _restaurantUnitOfWork.GetRestaurantTypeRepository().Delete(item);
             }
             model.TypeOfKitchens.ForEach(m => {
-                _restaurantTypeRepository.Create(new RestaurantType
+                _restaurantUnitOfWork.GetRestaurantTypeRepository().Create(new RestaurantType
                 {
                     RestaurantId = model.Id,
                     TypeOfKitchenId = m
                 });
             });
-            _restaurantTypeRepository.Save();
+            _restaurantUnitOfWork.GetRestaurantTypeRepository().Save();
+            _restaurantUnitOfWork.CommitTransaction();
         }
         public RestaurantDto GetById(int id)
         {
@@ -82,6 +92,13 @@ namespace Benefits.Services.Implementations
             if (entity == null)
                 return null;
             var result = _mapper.Map<RestaurantDto>(entity);
+            return result;
+        }
+
+        public List<RestaurantDto> GetAll()
+        {
+            var entity = _restaurantRepository.GetAll();
+            var result = _mapper.Map<List<RestaurantDto>>(entity);
             return result;
         }
     }

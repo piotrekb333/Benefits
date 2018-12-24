@@ -2,6 +2,7 @@
 using Autofac.Integration.WebApi;
 using AutoMapper;
 using Benefits.Configuration;
+using Benefits.DAL.Context;
 using Benefits.DAL.Repositories.Implementations;
 using Benefits.DAL.Repositories.Interfaces;
 using Benefits.Services.Implementations;
@@ -56,7 +57,9 @@ namespace Benefits.App_Start
             builder.RegisterType<RestaurantService>()
                   .As<IRestaurantService>()
                   .InstancePerRequest();
-
+            builder.RegisterType<WebApiContext>()
+              .AsImplementedInterfaces()
+              .InstancePerLifetimeScope();
             var mappingConfig = new MapperConfiguration(mc =>
             {
                 mc.AddProfile(new MappingProfile());

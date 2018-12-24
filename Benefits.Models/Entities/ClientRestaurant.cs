@@ -12,5 +12,7 @@ namespace Benefits.DAL.Entities
         public DateTime Date { get; set; }
         public int ClientId { get; set; }
         public int RestaurantId { get; set; }
+        public virtual Client Client { get; set; }
+        public virtual Restaurant Restaurant { get; set; }
     }
 }

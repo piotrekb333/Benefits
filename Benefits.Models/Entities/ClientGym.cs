@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Benefits.DAL.Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,5 +12,7 @@ namespace Benefits.Models.Entities
         public DateTime Date { get; set; }
         public int ClientId { get; set; }
         public int GymId { get; set; }
+        public virtual Client Client { get; set; }
+        public virtual Gym Gym { get; set; }
     }
 }

@@ -55,5 +55,11 @@ namespace Benefits.Services.Implementations
             var result = _mapper.Map<GymDto>(entity);
             return result;
         }
+        public List<GymDto> GetAll()
+        {
+            var entity = _gymRepository.GetAll();
+            var result = _mapper.Map<List<GymDto>>(entity);
+            return result;
+        }
     }
 }
