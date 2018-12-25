@@ -42,7 +42,7 @@ namespace Benefits.Controllers
             return Ok();
         }
 
-        [HttpDelete]
+        [HttpGet]
         [Route("api/gym/get")]
         public IHttpActionResult Get(int id)
         {
@@ -50,7 +50,7 @@ namespace Benefits.Controllers
             return Ok<GymDto>(result);
         }
 
-        [HttpDelete]
+        [HttpGet]
         [Route("api/gym/getAll")]
         public IHttpActionResult GetAll()
         {

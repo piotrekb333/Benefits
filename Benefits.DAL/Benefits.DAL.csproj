@@ -57,6 +57,7 @@
     <Compile Include="Repositories\Implementations\RestaurantRepository.cs" />
     <Compile Include="Repositories\Implementations\RestaurantTypeRepository.cs" />
     <Compile Include="Repositories\Implementations\RestaurantUnitOfWork.cs" />
+    <Compile Include="Repositories\Implementations\UserRepository.cs" />
     <Compile Include="Repositories\Interfaces\IClientGymRepository.cs" />
     <Compile Include="Repositories\Interfaces\IClientRestaurantRepository.cs" />
     <Compile Include="Repositories\Interfaces\IGymRepository.cs" />
@@ -64,6 +65,7 @@
     <Compile Include="Repositories\Interfaces\IRestaurantRepository.cs" />
     <Compile Include="Repositories\Interfaces\IRestaurantTypeRepository.cs" />
     <Compile Include="Repositories\Interfaces\IRestaurantUnitOfWork.cs" />
+    <Compile Include="Repositories\Interfaces\IUserRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

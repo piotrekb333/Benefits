@@ -47,6 +47,15 @@ namespace Benefits.App_Start
             builder.RegisterType<RestaurantRepository>()
                   .As<IRestaurantRepository>()
                   .InstancePerRequest();
+            builder.RegisterType<RestaurantTypeRepository>()
+                  .As<IRestaurantTypeRepository>()
+                  .InstancePerRequest();
+            builder.RegisterType<RestaurantUnitOfWork>()
+                  .As<IRestaurantUnitOfWork>()
+                  .InstancePerRequest();
+            builder.RegisterType<UserRepository>()
+                  .As<IUserRepository>()
+                  .InstancePerRequest();
 
             builder.RegisterType<ClientObjectService>()
                   .As<IClientObjectService>()
@@ -57,9 +66,14 @@ namespace Benefits.App_Start
             builder.RegisterType<RestaurantService>()
                   .As<IRestaurantService>()
                   .InstancePerRequest();
+            builder.RegisterType<UserService>()
+                  .As<IUserService>()
+                  .InstancePerRequest();
+
+
             builder.RegisterType<WebApiContext>()
-              .AsImplementedInterfaces()
-              .InstancePerLifetimeScope();
+                  .AsImplementedInterfaces()
+                  .InstancePerLifetimeScope();
             var mappingConfig = new MapperConfiguration(mc =>
             {
                 mc.AddProfile(new MappingProfile());

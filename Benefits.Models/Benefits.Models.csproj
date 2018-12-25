@@ -46,6 +46,7 @@
     <Compile Include="DtoModels\GymDto.cs" />
     <Compile Include="DtoModels\ObjectsReportDto.cs" />
     <Compile Include="DtoModels\RestaurantDto.cs" />
+    <Compile Include="DtoModels\UserDto.cs" />
     <Compile Include="Entities\BaseEntity.cs" />
     <Compile Include="Entities\City.cs" />
     <Compile Include="Entities\Client.cs" />
@@ -55,6 +56,7 @@
     <Compile Include="Entities\Restaurant.cs" />
     <Compile Include="Entities\RestaurantType.cs" />
     <Compile Include="Entities\TypeOfKitchen.cs" />
+    <Compile Include="Entities\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Requests\AddClientToGymRequest.cs" />
     <Compile Include="Requests\AddClientToRestaurantRequest.cs" />

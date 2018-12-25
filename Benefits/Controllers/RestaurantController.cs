@@ -41,7 +41,7 @@ namespace Benefits.Controllers
             return Ok();
         }
 
-        [HttpDelete]
+        [HttpGet]
         [Route("api/restaurant/get")]
         public IHttpActionResult Get(int id)
         {
@@ -49,7 +49,7 @@ namespace Benefits.Controllers
             return Ok<RestaurantDto>(result);
         }
 
-        [HttpDelete]
+        [HttpGet]
         [Route("api/restaurant/getAll")]
         public IHttpActionResult GetAll()
         {
