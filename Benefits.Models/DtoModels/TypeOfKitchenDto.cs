@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Benefits.DAL.Entities
+namespace Benefits.Models.DtoModels
 {
-    public abstract class BaseEntity
+    public class TypeOfKitchenDto
     {
-        public int Id { get; protected set; }
+        public string Name { get; set; }
     }
 }

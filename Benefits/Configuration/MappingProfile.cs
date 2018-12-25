@@ -1,7 +1,6 @@
 ﻿using AutoMapper;
 using Benefits.DAL.Entities;
 using Benefits.Models.DtoModels;
-using Benefits.Models.Entities;
 using Benefits.Models.Requests;
 using System;
 using System.Collections.Generic;
@@ -16,10 +15,13 @@ namespace Benefits.Configuration
         {
             CreateMap<User, UserDto>();
             CreateMap<UserDto, User>();
-            CreateMap<Restaurant, RestaurantDto>();
+            CreateMap<Restaurant, RestaurantDto>()
+                .ForMember(c => c.CityName, o => o.MapFrom(s => s.City.Name));
             CreateMap<RestaurantDto, Restaurant>();
-            CreateMap<Gym, GymDto>();
-            CreateMap<GymDto, Gym>();
+            CreateMap<Gym, GymDto>()
+                .ForMember(c => c.CityName, o => o.MapFrom(s => s.City.Name));
+            CreateMap<TypeOfKitchen, TypeOfKitchenDto>();
+            CreateMap<TypeOfKitchenDto, TypeOfKitchen>();
 
             CreateMap<ClientGym, AddClientToGymRequest>();
             CreateMap<AddClientToGymRequest, ClientGym>();
@@ -33,6 +35,7 @@ namespace Benefits.Configuration
             CreateMap<CreateGymRequest, Gym>();
             CreateMap<Restaurant, CreateRestaurantRequest>();
             CreateMap<CreateRestaurantRequest, Restaurant>();
+
         }
     }
 }

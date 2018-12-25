@@ -13,5 +13,7 @@ namespace Benefits.Models.DtoModels
         public bool IsPersonalTrainer { get; set; }
         public bool IsSauna { get; set; }
         public bool IsDietician { get; set; }
+        public string CityName { get; set; }
+        public string CityId { get; set; }
     }
 }

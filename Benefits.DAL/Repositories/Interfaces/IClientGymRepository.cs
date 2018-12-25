@@ -1,4 +1,5 @@
-﻿using Benefits.Models.Entities;
+﻿
+using Benefits.DAL.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;

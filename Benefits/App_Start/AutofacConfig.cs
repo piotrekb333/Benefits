@@ -56,6 +56,7 @@ namespace Benefits.App_Start
             builder.RegisterType<UserRepository>()
                   .As<IUserRepository>()
                   .InstancePerRequest();
+            builder.RegisterGeneric(typeof(RepositoryBase<>)).As(typeof(IRepositoryBase<>));
 
             builder.RegisterType<ClientObjectService>()
                   .As<IClientObjectService>()
@@ -70,10 +71,12 @@ namespace Benefits.App_Start
                   .As<IUserService>()
                   .InstancePerRequest();
 
-
+            /*
             builder.RegisterType<WebApiContext>()
                   .AsImplementedInterfaces()
                   .InstancePerLifetimeScope();
+            */
+            builder.RegisterType(typeof(WebApiContext));
             var mappingConfig = new MapperConfiguration(mc =>
             {
                 mc.AddProfile(new MappingProfile());

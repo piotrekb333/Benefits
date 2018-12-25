@@ -46,6 +46,7 @@
     <Compile Include="DtoModels\GymDto.cs" />
     <Compile Include="DtoModels\ObjectsReportDto.cs" />
     <Compile Include="DtoModels\RestaurantDto.cs" />
+    <Compile Include="DtoModels\TypeOfKitchenDto.cs" />
     <Compile Include="DtoModels\UserDto.cs" />
     <Compile Include="Entities\BaseEntity.cs" />
     <Compile Include="Entities\City.cs" />

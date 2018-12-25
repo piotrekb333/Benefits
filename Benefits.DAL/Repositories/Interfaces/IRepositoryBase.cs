@@ -1,5 +1,6 @@
-﻿using Benefits.DAL.Repositories.Implementations;
-using Benefits.Models.Entities;
+﻿using Benefits.DAL.Entities;
+using Benefits.DAL.Repositories.Implementations;
+
 using System;
 using System.Collections.Generic;
 using System.Linq;

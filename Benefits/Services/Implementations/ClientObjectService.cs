@@ -1,7 +1,6 @@
 ﻿using AutoMapper;
 using Benefits.DAL.Entities;
 using Benefits.DAL.Repositories.Interfaces;
-using Benefits.Models.Entities;
 using Benefits.Models.Requests;
 using Benefits.Services.Interfaces;
 using System;

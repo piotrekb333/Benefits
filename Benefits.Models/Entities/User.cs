@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Benefits.Models.Entities
+namespace Benefits.DAL.Entities
 {
     public class User : BaseEntity
     {

@@ -1,8 +1,8 @@
 ﻿using AutoMapper;
 using Benefits.Configuration;
+using Benefits.DAL.Entities;
 using Benefits.DAL.Repositories.Interfaces;
 using Benefits.Models.DtoModels;
-using Benefits.Models.Entities;
 using Benefits.Services.Interfaces;
 using Microsoft.IdentityModel.Tokens;
 using System;

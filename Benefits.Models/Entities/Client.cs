@@ -1,5 +1,4 @@
-﻿using Benefits.Models.Entities;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -15,8 +14,6 @@ namespace Benefits.DAL.Entities
         [Required]
         public DateTime DateOfBirth { get; set; }
         public bool IsPremium { get; set; }
-        public virtual ICollection<Restaurant> Restaurants { get; set; }
-        public virtual ICollection<Gym> Gyms { get; set; }
 
     }
 }
