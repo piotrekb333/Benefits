@@ -79,11 +79,7 @@ namespace Benefits.App_Start
             builder.RegisterType<ReportService>()
                   .As<IReportService>()
                   .InstancePerRequest();
-            /*
-            builder.RegisterType<WebApiContext>()
-                  .AsImplementedInterfaces()
-                  .InstancePerLifetimeScope();
-            */
+
             builder.RegisterType(typeof(WebApiContext));
             var mappingConfig = new MapperConfiguration(mc =>
             {
