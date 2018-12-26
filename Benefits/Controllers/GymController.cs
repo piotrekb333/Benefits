@@ -40,7 +40,7 @@ namespace Benefits.Controllers
         }
 
         [HttpDelete]
-        [Route("api/gym/delete")]
+        [Route("api/gym/delete/{id}")]
         public IHttpActionResult Delete(int id)
         {
             _gymService.Delete(id);
@@ -48,7 +48,7 @@ namespace Benefits.Controllers
         }
 
         [HttpGet]
-        [Route("api/gym/get")]
+        [Route("api/gym/get/{id}")]
         public IHttpActionResult Get(int id)
         {
             var result=_gymService.GetById(id);

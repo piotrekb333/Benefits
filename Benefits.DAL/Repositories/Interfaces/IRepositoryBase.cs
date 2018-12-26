@@ -16,9 +16,10 @@ namespace Benefits.DAL.Repositories.Interfaces
         IEnumerable<T> GetByCondition(Expression<Func<T, bool>> expression);
         T GetOneByCondition(Expression<Func<T, bool>> expression);
         T GetById(int id);
-        int Create(T entity);
+        void Create(T entity);
         void Update(T entity);
         void Delete(T entity);
         void Save();
+        int GetLastEntityId();
     }
 }

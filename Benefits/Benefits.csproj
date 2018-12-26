@@ -173,6 +173,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Configuration\Constant.cs" />
     <Compile Include="Configuration\MappingProfile.cs" />
+    <Compile Include="Controllers\ClientObjectController.cs" />
     <Compile Include="Controllers\GymController.cs" />
     <Compile Include="Controllers\ReportController.cs" />
     <Compile Include="Controllers\RestaurantController.cs" />

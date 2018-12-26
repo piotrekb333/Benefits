@@ -28,7 +28,7 @@ namespace Benefits.Services.Implementations
             _clientRestaurantRepository.Save();
         }
 
-        public void AddClientToGym(AddClientToRestaurantRequest model)
+        public void AddClientToGym(AddClientToGymRequest model)
         {
             var entity = _mapper.Map<ClientGym>(model);
             _clientGymRepository.Create(entity);

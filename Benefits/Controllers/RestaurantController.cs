@@ -38,7 +38,7 @@ namespace Benefits.Controllers
         }
 
         [HttpDelete]
-        [Route("api/restaurant/delete")]
+        [Route("api/restaurant/delete/{id}")]
         public IHttpActionResult Delete(int id)
         {
             _restaurantService.Delete(id);
@@ -46,7 +46,7 @@ namespace Benefits.Controllers
         }
 
         [HttpGet]
-        [Route("api/restaurant/get")]
+        [Route("api/restaurant/get/{id}")]
         public IHttpActionResult Get(int id)
         {
             var result = _restaurantService.GetById(id);

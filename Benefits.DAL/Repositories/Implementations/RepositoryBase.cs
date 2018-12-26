@@ -8,14 +8,15 @@ using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 using Benefits.DAL.Entities;
-
+using System.Data.Entity.Migrations;
 
 namespace Benefits.DAL.Repositories.Implementations
 {
     public abstract class RepositoryBase<T> : IRepositoryBase<T> where T : BaseEntity
     {
         protected WebApiContext RepositoryContext { get; set; }
-
+        private int LastId { get; set; }
+        T LastEntity { get; set; }
         public RepositoryBase(WebApiContext repositoryContext)
         {
             this.RepositoryContext = repositoryContext;
@@ -41,18 +42,17 @@ namespace Benefits.DAL.Repositories.Implementations
             return this.RepositoryContext.Set<T>().Find(id);
         }
 
-        public int Create(T entity)
+        public void Create(T entity)
         {
             this.RepositoryContext.Set<T>().Add(entity);
-            return entity.Id;
+            LastEntity = entity;
         }
 
         public void Update(T entity)
         {
             if (entity == null)
                 return;
-            this.RepositoryContext.Set<T>().Attach(entity);
-            this.RepositoryContext.Entry(entity).State= EntityState.Modified;
+            this.RepositoryContext.Set<T>().AddOrUpdate(entity);
         }
 
         public void Delete(T entity)
@@ -63,6 +63,10 @@ namespace Benefits.DAL.Repositories.Implementations
         public void Save()
         {
             RepositoryContext.SaveChanges();
+        }
+        public int GetLastEntityId()
+        {
+            return LastEntity?.Id ?? 0;
         }
     }
 }

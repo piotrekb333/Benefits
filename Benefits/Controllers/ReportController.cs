@@ -18,7 +18,7 @@ namespace Benefits.Controllers
 
         [HttpGet]
         [Route("api/report/objectsReport")]
-        public IHttpActionResult ObjectsReport(DateTime? dateFrom,DateTime? dateTo)
+        public IHttpActionResult ObjectsReport(DateTime? dateFrom = null,DateTime? dateTo = null)
         {
             var result = _reportService.GetObjectsReport(dateFrom,dateTo);
             return Ok<List<ObjectsReportDto>>(result);
@@ -26,7 +26,7 @@ namespace Benefits.Controllers
 
         [HttpGet]
         [Route("api/report/clientsReport")]
-        public IHttpActionResult ClientsReport(DateTime? dateFrom, DateTime? dateTo)
+        public IHttpActionResult ClientsReport(DateTime? dateFrom = null, DateTime? dateTo = null)
         {
             var result = _reportService.GetClientsReport(dateFrom, dateTo);
             return Ok<List<ClientsReportDto>>(result);

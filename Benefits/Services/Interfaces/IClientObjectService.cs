@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Benefits.Models.Requests;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,6 +9,7 @@ namespace Benefits.Services.Interfaces
 {
     public interface IClientObjectService
     {
-        
+        void AddClientToRestaurant(AddClientToRestaurantRequest model);
+        void AddClientToGym(AddClientToGymRequest model);
     }
 }

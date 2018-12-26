@@ -56,6 +56,12 @@ namespace Benefits.App_Start
             builder.RegisterType<UserRepository>()
                   .As<IUserRepository>()
                   .InstancePerRequest();
+            builder.RegisterType<ClientGymRepository>()
+                  .As<IClientGymRepository>()
+                  .InstancePerRequest();
+            builder.RegisterType<ClientRestaurantRepository>()
+                  .As<IClientRestaurantRepository>()
+                  .InstancePerRequest();
             builder.RegisterGeneric(typeof(RepositoryBase<>)).As(typeof(IRepositoryBase<>));
 
             builder.RegisterType<ClientObjectService>()
@@ -70,7 +76,9 @@ namespace Benefits.App_Start
             builder.RegisterType<UserService>()
                   .As<IUserService>()
                   .InstancePerRequest();
-
+            builder.RegisterType<ReportService>()
+                  .As<IReportService>()
+                  .InstancePerRequest();
             /*
             builder.RegisterType<WebApiContext>()
                   .AsImplementedInterfaces()
