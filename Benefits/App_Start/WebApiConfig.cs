@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
+using System.Web.Http.ExceptionHandling;
+using Benefits.Filters;
 using Microsoft.Owin.Security.OAuth;
 namespace Benefits
 {
@@ -21,6 +23,7 @@ namespace Benefits
                 routeTemplate: "api/{controller}/{id}",
                 defaults: new { id = RouteParameter.Optional }
             );
+            config.Filters.Add(new GlobalExceptionFilter());
         }
     }
 }
