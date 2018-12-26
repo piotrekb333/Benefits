@@ -23,6 +23,8 @@ namespace Benefits.Controllers
         [Authorize(Roles = "Admin")]
         public IHttpActionResult Create([FromBody]CreateGymRequest model)
         {
+            if (!ModelState.IsValid)
+                return BadRequest();
             _gymService.Create(model);
             return Ok();
         }
@@ -31,6 +33,8 @@ namespace Benefits.Controllers
         [Route("api/gym/update")]
         public IHttpActionResult Update([FromBody]UpdateGymRequest model)
         {
+            if (!ModelState.IsValid)
+                return BadRequest();
             _gymService.Update(model);
             return Ok();
         }

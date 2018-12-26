@@ -21,6 +21,8 @@ namespace Benefits.Controllers
         [Route("api/restaurant/create")]
         public IHttpActionResult Create([FromBody]CreateRestaurantRequest model)
         {
+            if (!ModelState.IsValid)
+                return BadRequest();
             _restaurantService.Create(model);
             return Ok();
         }
@@ -29,6 +31,8 @@ namespace Benefits.Controllers
         [Route("api/restaurant/update")]
         public IHttpActionResult Update([FromBody]UpdateRestaurantRequest model)
         {
+            if (!ModelState.IsValid)
+                return BadRequest();
             _restaurantService.Update(model);
             return Ok();
         }
