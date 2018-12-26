@@ -3,6 +3,7 @@ using Benefits.Configuration;
 using Benefits.DAL.Entities;
 using Benefits.DAL.Repositories.Interfaces;
 using Benefits.Models.DtoModels;
+using Benefits.Models.Requests;
 using Benefits.Services.Interfaces;
 using Microsoft.IdentityModel.Tokens;
 using System;
@@ -42,11 +43,15 @@ namespace Benefits.Services.Implementations
 
             var tokenHandler = new JwtSecurityTokenHandler();
             var key = Encoding.ASCII.GetBytes(Constant.SecretKey);
+
+            
+
             var tokenDescriptor = new SecurityTokenDescriptor
             {
                 Subject = new ClaimsIdentity(new Claim[]
                 {
-                    new Claim(ClaimTypes.Name, user.Id.ToString())
+                    new Claim(ClaimTypes.Name, user.Id.ToString()),
+                    new Claim(ClaimTypes.Role, user.Role.ToString())
                 }),
                 Expires = DateTime.UtcNow.AddDays(7),
                 SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
@@ -57,10 +62,11 @@ namespace Benefits.Services.Implementations
             return userDto;
         }
 
-        public User Create(User user, string password)
+        public void Create(AddUserRequest model)
         {
+            var user = _mapper.Map<User>(model);
             byte[] passwordHash, passwordSalt;
-            CreatePasswordHash(password, out passwordHash, out passwordSalt);
+            CreatePasswordHash(model.Password, out passwordHash, out passwordSalt);
 
             user.PasswordHash = passwordHash;
             user.PasswordSalt = passwordSalt;
@@ -68,7 +74,6 @@ namespace Benefits.Services.Implementations
             _userRepository.Create(user);
             _userRepository.Save();
 
-            return user;
         }
 
         private void CreatePasswordHash(string password, out byte[] passwordHash, out byte[] passwordSalt)

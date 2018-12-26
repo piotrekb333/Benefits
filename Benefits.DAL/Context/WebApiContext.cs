@@ -19,7 +19,7 @@ namespace Benefits.DAL.Context
         public DbSet<ClientRestaurant> ClientRestaurants { get; set; }
         public DbSet<Gym> Gyms { get; set; }
         public DbSet<Restaurant> Restaurants { get; set; }
-        public DbSet<RestaurantType> RestaurantTypes { get; set; }
+        public DbSet<RestaurantTypeOfKitchen> RestaurantTypeOfKitchens { get; set; }
         public DbSet<TypeOfKitchen> TypeOfKitchens { get; set; }
         public DbSet<Entities.User> Users { get; set; }
 

@@ -12,6 +12,6 @@ namespace Benefits.DAL.Repositories.Interfaces
         void BeginTransaction();
         void RollbackTransaction();
         IRestaurantRepository GetRestaurantRepository();
-        IRestaurantTypeRepository GetRestaurantTypeRepository();
+        IRestaurantTypeOfKitchenRepository GetRestaurantTypeRepository();
     }
 }

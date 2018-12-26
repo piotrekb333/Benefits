@@ -16,10 +16,10 @@ namespace Benefits.Services.Implementations
     public class RestaurantService : IRestaurantService
     {
         private readonly IRestaurantRepository _restaurantRepository;
-        private readonly IRestaurantTypeRepository _restaurantTypeRepository;
+        private readonly IRestaurantTypeOfKitchenRepository _restaurantTypeRepository;
         private readonly IRestaurantUnitOfWork _restaurantUnitOfWork;
         private readonly IMapper _mapper;
-        public RestaurantService(IMapper mapper, IRestaurantRepository restaurantRepository, IRestaurantTypeRepository restaurantTypeRepository,
+        public RestaurantService(IMapper mapper, IRestaurantRepository restaurantRepository, IRestaurantTypeOfKitchenRepository restaurantTypeRepository,
             IRestaurantUnitOfWork restaurantUnitOfWork)
         {
             _mapper = mapper;
@@ -35,7 +35,7 @@ namespace Benefits.Services.Implementations
             var id= _restaurantUnitOfWork.GetRestaurantRepository().Create(entity);
             _restaurantUnitOfWork.GetRestaurantRepository().Save();
             model.TypeOfKitchens.ForEach(m => {
-                _restaurantUnitOfWork.GetRestaurantTypeRepository().Create(new RestaurantType
+                _restaurantUnitOfWork.GetRestaurantTypeRepository().Create(new RestaurantTypeOfKitchen
                 {
                     RestaurantId = id,
                     TypeOfKitchenId = m
@@ -77,7 +77,7 @@ namespace Benefits.Services.Implementations
                 _restaurantUnitOfWork.GetRestaurantTypeRepository().Delete(item);
             }
             model.TypeOfKitchens.ForEach(m => {
-                _restaurantUnitOfWork.GetRestaurantTypeRepository().Create(new RestaurantType
+                _restaurantUnitOfWork.GetRestaurantTypeRepository().Create(new RestaurantTypeOfKitchen
                 {
                     RestaurantId = model.Id,
                     TypeOfKitchenId = m

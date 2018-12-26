@@ -7,7 +7,7 @@ using Benefits.DAL.Entities;
 
 namespace Benefits.DAL.Repositories.Interfaces
 {
-    public interface IRestaurantTypeRepository : IRepositoryBase<RestaurantType>
+    public interface IRestaurantTypeOfKitchenRepository : IRepositoryBase<RestaurantTypeOfKitchen>
     {
     }
 }

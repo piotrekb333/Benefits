@@ -12,19 +12,19 @@ namespace Benefits.DAL.Repositories.Implementations
     {
         private readonly WebApiContext _context;
         private readonly IRestaurantRepository _restaurantRepository;
-        private readonly IRestaurantTypeRepository _restaurantTypeRepository;
+        private readonly IRestaurantTypeOfKitchenRepository _restaurantTypeRepository;
         public RestaurantUnitOfWork(WebApiContext repositoryContext)
         {
             _context = repositoryContext;
             _restaurantRepository = new RestaurantRepository(_context);
-            _restaurantTypeRepository = new RestaurantTypeRepository(_context);
+            _restaurantTypeRepository = new RestaurantTypeOfKitchenRepository(_context);
         }
 
         public IRestaurantRepository GetRestaurantRepository()
         {
             return _restaurantRepository;
         }
-        public IRestaurantTypeRepository GetRestaurantTypeRepository()
+        public IRestaurantTypeOfKitchenRepository GetRestaurantTypeRepository()
         {
             return _restaurantTypeRepository;
         }

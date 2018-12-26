@@ -20,6 +20,7 @@ namespace Benefits.Controllers
 
         [HttpPost]
         [Route("api/gym/create")]
+        [Authorize(Roles = "Admin")]
         public IHttpActionResult Create([FromBody]CreateGymRequest model)
         {
             _gymService.Create(model);
@@ -52,6 +53,7 @@ namespace Benefits.Controllers
 
         [HttpGet]
         [Route("api/gym/getAll")]
+        [Authorize]
         public IHttpActionResult GetAll()
         {
             var result = _gymService.GetAll();

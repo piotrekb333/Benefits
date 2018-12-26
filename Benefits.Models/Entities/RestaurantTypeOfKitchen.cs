@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Benefits.DAL.Entities
 {
-    public class RestaurantType : BaseEntity
+    public class RestaurantTypeOfKitchen : BaseEntity
     {
         public int TypeOfKitchenId { get; set; }
         public int RestaurantId { get; set; }

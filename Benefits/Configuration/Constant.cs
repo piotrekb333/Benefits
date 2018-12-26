@@ -7,6 +7,21 @@ namespace Benefits.Configuration
 {
     public static class Constant
     {
-        public const string SecretKey = "kruk2019";
+        public const string SecretKey = @"MIICXAIBAAKBgHr87AQqVzD96kkdy3kB+rDO4qQOCRtH4PCtFZeUJXsD+hziLDm1
+1eisGyd+7MSSyU9U52el8lD4VSovKlIg7ytkD0CN/rlu+0YKud8KKHJhs27Wf8kX
+cQqBLlG/uFvep9IcLLBJqaDbj/lRTjg3Kiukeour5bS3lLZTnKRq2OZ1AgMBAAEC
+gYBY4tScyhEMCmc6ArucsC6DfHJWiQJR4igTKbTSQTK5bo1kNJ4r81wu9bwGVng+
+NawilsVLpqazmFbMzxuyEbVoUEhjJlpydPy097qwct2043lOmF+qbFN0wedygAkg
+zg7TaGuLDJlAeX/gnHkmGSOlEVfqz/mPpGztRXMIdu01AQJBAMGq5G9NBO8uu1E9
+rkApJTf/PUKluljvgpOfzoCb/Frkf6e6weV3Q8fH0vMlR0Oek9XZuZrRAGjd6riQ
+4PPmfUECQQCikm8IZsHbjPLn4c+y8d8pqNqcLeHcyjhbJN4axrDtPYXb4g6wnpWN
+wZk+5O3Y8EzXlumkqGpFqcxgYrjuSvg1AkEAtO8ftAxUy9DxGBl0LmVCbGp9pUKI
+Moaxi5IFr4oL3i8URHPqqqMeJAvAPYFabwY8P9LF4KnapB6QKBbS04tHAQJATBZ/
+Ew6M8sXQNkkQna7ohKX70xcCXATlRXtG3H9b9V1TFiuCNpWyZ0tR/wbEb0FgpZKD
+PcZ5Hquu9Pmflh/OdQJBAKb6ybHDrLuZnY2RNGtYDN4MYACK+RZV4PDnkGIbxrfz
+v7g2V7f0HEbMQAoIMEwDY1zyysnAqRdQhUfJAyjUeB4 = FGDDGFDGFDDFGFDGDFGD
+v7g2V7f0HEbMQAoIMEwDY1zyysnAqRdQhUfJAyjUeB4=FGDDGFDGFDDFGFDGDFGD
+v7g2V7f0HEbMQAoIMEwDY1zyysnAqRdQhUfJAyjUeB4 = FGDDGFDGFDDFGFDGDFGD
+v7g2V7f0HEbMQAoIMEwDY1zyysnAqRdQ";
     }
 }

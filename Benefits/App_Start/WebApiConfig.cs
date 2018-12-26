@@ -9,6 +9,8 @@ namespace Benefits
     {
         public static void Register(HttpConfiguration config)
         {
+            //config.SuppressDefaultHostAuthentication();
+            //config.Filters.Add(new HostAuthenticationFilter(OAuthDefaults.AuthenticationType));
             // Web API configuration and services
 
             // Web API routes

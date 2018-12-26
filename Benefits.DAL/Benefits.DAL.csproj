@@ -49,25 +49,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Context\WebApiContext.cs" />
-    <Compile Include="Migrations\201812251248246_Init.cs" />
-    <Compile Include="Migrations\201812251248246_Init.Designer.cs">
-      <DependentUpon>201812251248246_Init.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201812251344508_tables.cs" />
-    <Compile Include="Migrations\201812251344508_tables.Designer.cs">
-      <DependentUpon>201812251344508_tables.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201812252040034_tables2.cs" />
-    <Compile Include="Migrations\201812252040034_tables2.Designer.cs">
-      <DependentUpon>201812252040034_tables2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201812252042307_changedtables.cs" />
-    <Compile Include="Migrations\201812252042307_changedtables.Designer.cs">
-      <DependentUpon>201812252042307_changedtables.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201812252058486_changedtables3.cs" />
-    <Compile Include="Migrations\201812252058486_changedtables3.Designer.cs">
-      <DependentUpon>201812252058486_changedtables3.cs</DependentUpon>
+    <Compile Include="Migrations\201812252317377_init.cs" />
+    <Compile Include="Migrations\201812252317377_init.Designer.cs">
+      <DependentUpon>201812252317377_init.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -76,7 +60,7 @@
     <Compile Include="Repositories\Implementations\GymRepository.cs" />
     <Compile Include="Repositories\Implementations\RepositoryBase.cs" />
     <Compile Include="Repositories\Implementations\RestaurantRepository.cs" />
-    <Compile Include="Repositories\Implementations\RestaurantTypeRepository.cs" />
+    <Compile Include="Repositories\Implementations\RestaurantTypeOfKitchenRepository.cs" />
     <Compile Include="Repositories\Implementations\RestaurantUnitOfWork.cs" />
     <Compile Include="Repositories\Implementations\UserRepository.cs" />
     <Compile Include="Repositories\Interfaces\IClientGymRepository.cs" />
@@ -84,7 +68,7 @@
     <Compile Include="Repositories\Interfaces\IGymRepository.cs" />
     <Compile Include="Repositories\Interfaces\IRepositoryBase.cs" />
     <Compile Include="Repositories\Interfaces\IRestaurantRepository.cs" />
-    <Compile Include="Repositories\Interfaces\IRestaurantTypeRepository.cs" />
+    <Compile Include="Repositories\Interfaces\IRestaurantTypeOfKitchenRepository.cs" />
     <Compile Include="Repositories\Interfaces\IRestaurantUnitOfWork.cs" />
     <Compile Include="Repositories\Interfaces\IUserRepository.cs" />
   </ItemGroup>
@@ -99,20 +83,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201812251248246_Init.resx">
-      <DependentUpon>201812251248246_Init.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201812251344508_tables.resx">
-      <DependentUpon>201812251344508_tables.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201812252040034_tables2.resx">
-      <DependentUpon>201812252040034_tables2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201812252042307_changedtables.resx">
-      <DependentUpon>201812252042307_changedtables.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201812252058486_changedtables3.resx">
-      <DependentUpon>201812252058486_changedtables3.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201812252317377_init.resx">
+      <DependentUpon>201812252317377_init.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

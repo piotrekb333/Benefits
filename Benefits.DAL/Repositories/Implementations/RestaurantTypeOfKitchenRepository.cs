@@ -9,9 +9,9 @@ using Benefits.DAL.Entities;
 
 namespace Benefits.DAL.Repositories.Implementations
 {
-    public class RestaurantTypeRepository : RepositoryBase<RestaurantType>, IRestaurantTypeRepository
+    public class RestaurantTypeOfKitchenRepository : RepositoryBase<RestaurantTypeOfKitchen>, IRestaurantTypeOfKitchenRepository
     {
-        public RestaurantTypeRepository(WebApiContext repositoryContext) : base(repositoryContext)
+        public RestaurantTypeOfKitchenRepository(WebApiContext repositoryContext) : base(repositoryContext)
         {
         }
     }

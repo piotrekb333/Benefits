@@ -31,5 +31,6 @@ namespace Benefits.Controllers
             var result = _reportService.GetClientsReport(dateFrom, dateTo);
             return Ok<List<ClientsReportDto>>(result);
         }
+
     }
 }

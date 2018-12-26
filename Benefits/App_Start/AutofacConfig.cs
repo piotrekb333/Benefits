@@ -47,8 +47,8 @@ namespace Benefits.App_Start
             builder.RegisterType<RestaurantRepository>()
                   .As<IRestaurantRepository>()
                   .InstancePerRequest();
-            builder.RegisterType<RestaurantTypeRepository>()
-                  .As<IRestaurantTypeRepository>()
+            builder.RegisterType<RestaurantTypeOfKitchenRepository>()
+                  .As<IRestaurantTypeOfKitchenRepository>()
                   .InstancePerRequest();
             builder.RegisterType<RestaurantUnitOfWork>()
                   .As<IRestaurantUnitOfWork>()

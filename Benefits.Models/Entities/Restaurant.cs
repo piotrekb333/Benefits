@@ -15,5 +15,6 @@ namespace Benefits.DAL.Entities
         [Required]
         public int CityId { get; set; }
         public virtual City City { get; set; }
+        public virtual ICollection<RestaurantTypeOfKitchen> RestaurantTypeOfKitchens { get; set; }
     }
 }

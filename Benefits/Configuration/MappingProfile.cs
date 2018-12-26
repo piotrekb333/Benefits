@@ -15,8 +15,11 @@ namespace Benefits.Configuration
         {
             CreateMap<User, UserDto>();
             CreateMap<UserDto, User>();
+            CreateMap<User, AddUserRequest>();
+            CreateMap<AddUserRequest, User>();
             CreateMap<Restaurant, RestaurantDto>()
-                .ForMember(c => c.CityName, o => o.MapFrom(s => s.City.Name));
+                .ForMember(c => c.CityName, o => o.MapFrom(s => s.City.Name))
+                .ForMember(c => c.TypeOfKitchenDto, o => o.MapFrom(s => s.RestaurantTypeOfKitchens.Select(d=>d.TypeOfKitchen)));
             CreateMap<RestaurantDto, Restaurant>();
             CreateMap<Gym, GymDto>()
                 .ForMember(c => c.CityName, o => o.MapFrom(s => s.City.Name));
